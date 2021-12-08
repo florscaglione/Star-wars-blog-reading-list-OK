@@ -77,9 +77,13 @@
 		]
 	},
 	"dependencies": {
-		"bootstrap": "^5.1.1",
+		"bootstrap": "^4.6.0",
+		"jquery": "^3.6.0",
+		"latest": "^0.2.0",
+		"popper.js": "^1.16.1",
 		"prop-types": "^15.6.1",
-		"react": "^16.8.4",
+		"react": "^16.14.0",
+		"react-bootstrap-validation": "^0.1.11",
 		"react-dom": "^16.8.4",
 		"react-polyfills": "0.0.1",
 		"react-router-dom": "^5.2.0"
