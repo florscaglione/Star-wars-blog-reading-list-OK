@@ -1,48 +1,42 @@
 .logo {
-    width: 10%;
+    width: 40%;
 }
-
 .row {
-     overflow: auto;
-     padding: 5px;
-     margin:2px;
+    overflow: auto;
+    padding: 5px;
+    margin:2px;
 }
 body {
-    background: #151515;
+    background-image: url(../img/universo.jpg);
+    background-size:cover;
 }
 h1 {
     padding: 8px;;
     color:gold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-footer   {
-    background: rgb(204, 190, 190);
-}
-.fas fa-heart {
-    color:red;
-
-}
-.details {
-    color:black
+.navbar {
+    background: rgb(21, 17, 32);
 }
 button {
     background: white;
     padding: 10px;
-  text-align: center;
-  text-decoration:wavy;
-  display: inline-block;
-  font-size: 13px;
-  margin: 4px 2px;
+    text-align: center;
+    text-decoration:wavy;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
     border-radius: 8px;
-    
 }
 .list-group {
     background: white;
     margin-top: 40px;
     text-align: center;
     color:black
-    
 }
 p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container.one{
+    max-width: 2140px;
 }

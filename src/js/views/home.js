@@ -6,7 +6,7 @@ import StarshipsCard from "../component/StarshipsCard.js";
 
 const Home = () => {
 	return (
-		<div className="container one">
+		<div className="container one mt-5 pt-5">
 			<PeopleCard /> <PlanetCard /> <StarshipsCard />
 		</div>
 	);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import StarWarsPeople from "../../img/star-wars-people.jpg";
 
 const PeopleCard = () => {
 	const [people, setPeople] = useState([]);
@@ -17,17 +18,13 @@ const PeopleCard = () => {
 	}, []);
 
 	return (
-		<div className="container">
-			<h1>PEOPLE</h1>
+		<div className="container mt-3">
+			<h1>CHARACTERS</h1>
 			<div className="row flex-nowrap ">
 				{people.map(person => {
 					return (
-						<div className="card col-3 m-4" key={person.uid}>
-							<img
-								className="card-img-top"
-								src="https://starwarsblog.starwars.com/wp-content/uploads/2021/03/leia-acme-archives-christophe-vacher-tall.jpg"
-								alt="Card image cap"
-							/>
+						<div className="card col-3 m-4" key={person.id}>
+							<img className="card-img-top mt-2" src={StarWarsPeople} alt="Card image" />
 							<h5>{person.name}</h5>
 							<div className="card-body">
 								<p className="card-text">
@@ -35,18 +32,24 @@ const PeopleCard = () => {
 									content. This content is a little bit longer.
 								</p>
 								<button
-									className="fas fa-heart"
+									type="button"
+									className="btn btn-dark rounded-top "
 									onClick={() => {
 										actions.addFav(person.name);
-									}}
-								/>
+									}}>
+									{store.favorites.includes(person.name) ? (
+										<i className="fas fa-heart" />
+									) : (
+										<i className="far fa-heart" />
+									)}
+								</button>
 								<Link to="/PeopleDetail">
 									<button
-										className="details"
+										className="btn btn-secondary rounded-top"
 										onClick={() => {
 											actions.addDetails(person.url);
 										}}>
-										Details
+										Learn more!
 									</button>
 								</Link>
 							</div>

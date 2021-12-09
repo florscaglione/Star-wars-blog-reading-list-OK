@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import StarWarsPlanet from "../../img/star-wars-planet.jpg";
 
 const PlanetCard = () => {
 	const [planets, setPlanets] = useState([]);
@@ -17,17 +18,13 @@ const PlanetCard = () => {
 	}, []);
 
 	return (
-		<div className="container">
+		<div className="container mt-3">
 			<h1>PLANETS</h1>
 			<div className="row flex-nowrap ">
 				{planets.map(planet => {
 					return (
-						<div className="card col-3 m-4" key={planet.uid}>
-							<img
-								className="card-img-top"
-								src="https://starwarsblog.starwars.com/wp-content/uploads/2018/10/mustafar-tall.jpg"
-								alt="Card image cap"
-							/>
+						<div className="card col-3 m-4" key={planet.id}>
+							<img className="card-img-top mt-2" src={StarWarsPlanet} alt="Card image" />
 							<h5>{planet.name}</h5>
 							<div className="card-body">
 								<p className="card-text">
@@ -35,18 +32,24 @@ const PlanetCard = () => {
 									content. This content is a little bit longer.
 								</p>
 								<button
-									className="fas fa-heart"
+									type="button"
+									className="btn btn-dark rounded-top "
 									onClick={() => {
 										actions.addFav(planet.name);
-									}}
-								/>
+									}}>
+									{store.favorites.includes(planet.name) ? (
+										<i className="fas fa-heart" />
+									) : (
+										<i className="far fa-heart" />
+									)}
+								</button>
 								<Link to="/PlanetDetail">
 									<button
-										className="details"
+										className="btn btn-secondary rounded-top"
 										onClick={() => {
 											actions.addDetails(planet.url);
 										}}>
-										Details
+										Learn more!
 									</button>
 								</Link>
 							</div>

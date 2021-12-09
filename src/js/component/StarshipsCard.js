@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import StarWarsStarships from "../../img/star-wars-starships.jpg";
 
 const StarshipsCard = () => {
 	const [starships, setStarships] = useState([]);
@@ -17,17 +18,13 @@ const StarshipsCard = () => {
 	}, []);
 
 	return (
-		<div className="container">
+		<div className="container mt-3">
 			<h1>STARSHIPS</h1>
-			<div className="row flex-nowrap ">
+			<div className="row flex-nowrap pb-5 mb-5">
 				{starships.map(starship => {
 					return (
-						<div className="card col-3 m-4" key={starship.uid}>
-							<img
-								className="card-img-top"
-								src="https://lumiere-a.akamaihd.net/v1/images/Star-Destroyer_ab6b94bb.jpeg?region=0%2C0%2C1600%2C900&width=960"
-								alt="Card image cap"
-							/>
+						<div className="card col-3 m-4" key={starship.id}>
+							<img className="card-img-top mt-2" src={StarWarsStarships} alt="Card image" />
 							<h5>{starship.name}</h5>
 							<div className="card-body">
 								<p className="card-text">
@@ -35,18 +32,24 @@ const StarshipsCard = () => {
 									content. This content is a little bit longer.
 								</p>
 								<button
-									className="fas fa-heart"
+									type="button"
+									className="btn btn-dark rounded-top "
 									onClick={() => {
 										actions.addFav(starship.name);
-									}}
-								/>
+									}}>
+									{store.favorites.includes(starship.name) ? (
+										<i className="fas fa-heart" />
+									) : (
+										<i className="far fa-heart" />
+									)}
+								</button>
 								<Link to="/StarshipsDetail">
 									<button
-										className="details"
+										className="btn btn-secondary rounded-top"
 										onClick={() => {
 											actions.addDetails(starship.url);
 										}}>
-										Details
+										Learn more!
 									</button>
 								</Link>
 							</div>
