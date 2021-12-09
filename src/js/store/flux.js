@@ -6,7 +6,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			addFav: name => {
-				setStore({ favorites: [...getStore().favorites, name] });
+				if (!getStore().favorites.includes(name)) {
+					setStore({ favorites: [...getStore().favorites, name] });
+				}
 			},
 			addDetails: detail => {
 				setStore({ details: [...getStore().details, detail] });
